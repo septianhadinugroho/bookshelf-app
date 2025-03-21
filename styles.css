@@ -1,0 +1,524 @@
+:root {
+    /* Light mode variables */
+    --bg-color: #f8f9fa;
+    --card-bg: #ffffff;
+    --text-color: #212529;
+    --heading-color: #2c3e50;
+    --border-color: #dee2e6;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --accent-color: #3498db;
+    --accent-hover: #2980b9;
+    --add-color: #2ecc71;
+    --add-hover: #27ae60;
+    --delete-color: #e74c3c;
+    --delete-hover: #c0392b;
+    --edit-color: #f39c12;
+    --edit-hover: #d35400;
+    --card-hover: #f8f9fa;
+    --card-accent: #3498db;
+    --input-bg: #ffffff;
+    --input-border: #ced4da;
+  }
+  
+  .dark-mode {
+    --bg-color: #212529;
+    --card-bg: #343a40;
+    --text-color: #f8f9fa;
+    --heading-color: #e9ecef;
+    --border-color: #495057;
+    --shadow-color: rgba(0, 0, 0, 0.25);
+    --accent-color: #4dabf7;
+    --accent-hover: #74c0fc;
+    --add-color: #40c057;
+    --add-hover: #51cf66;
+    --delete-color: #fa5252;
+    --delete-hover: #ff6b6b;
+    --edit-color: #fd7e14;
+    --edit-hover: #ff922b;
+    --card-hover: #495057;
+    --card-accent: #4dabf7;
+    --input-bg: #495057;
+    --input-border: #6c757d;
+  }
+  
+  /* Import Poppins font */
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s, box-shadow 0.3s;
+  }
+  
+  body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.5;
+    padding: 15px;
+    margin: 0 auto;
+    max-width: 1200px;
+    font-size: 0.95rem;
+  }
+  
+  /* === HEADER === */
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    margin-bottom: 20px;
+  }
+  
+  header h1 {
+    color: var(--heading-color);
+    font-size: 1.8rem;
+    position: relative;
+    font-weight: 600;
+  }
+  
+  header h1::after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--accent-color);
+  }
+  
+  /* === THEME TOGGLE === */
+  .theme-toggle {
+    background-color: var(--card-bg);
+    border: 2px solid var(--border-color);
+    color: var(--text-color);
+    padding: 4px 8px;
+    border-radius: 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    transition: all 0.3s ease;
+    font-size: 0.75rem;
+    font-weight: 500;
+  }
+  
+  .theme-toggle:hover {
+    background-color: var(--accent-color);
+    color: white;
+  }
+  
+  /* === MAIN CONTAINER === */
+  main {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  /* === SECTION STYLING === */
+  section {
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    box-shadow: 0 3px 8px var(--shadow-color);
+    padding: 18px;
+    margin-bottom: 15px;
+    border: 1px solid var(--border-color);
+  }
+  
+  section h2 {
+    color: var(--heading-color);
+    margin-bottom: 15px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--accent-color);
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+  
+  /* === FORM STYLING === */
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  
+  form div {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  label {
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: var(--heading-color);
+    font-size: 0.85rem;
+  }
+  
+  input[type="text"],
+  input[type="number"] {
+    padding: 8px 10px;
+    border: 1px solid var(--input-border);
+    border-radius: 4px;
+    font-size: 0.9rem;
+    background-color: var(--input-bg);
+    color: var(--text-color);
+  }
+  
+  input[type="text"]:focus,
+  input[type="number"]:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+  }
+  
+  input[type="checkbox"] {
+    transform: scale(1.1);
+    margin-right: 8px;
+    accent-color: var(--accent-color);
+  }
+  
+  form div:has(input[type="checkbox"]) {
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+  }
+  
+  button {
+    padding: 8px 14px;
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: all 0.2s;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+  }
+  
+  button:hover {
+    background-color: var(--accent-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 5px var(--shadow-color);
+  }
+  
+  button:active {
+    transform: translateY(0);
+  }
+  
+  #bookFormSubmit {
+    margin-top: 10px;
+    background-color: var(--add-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  #bookFormSubmit::before {
+    content: "✓";
+    font-size: 1rem;
+  }
+  
+  #bookFormSubmit:hover {
+    background-color: var(--add-hover);
+  }
+  
+  #searchSubmit {
+    background-color: var(--edit-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  #searchSubmit::before {
+    content: "🔍";
+    font-size: 1rem;
+  }
+  
+  #searchSubmit:hover {
+    background-color: var(--edit-hover);
+  }
+  
+  /* === BOOK ITEM STYLING === */
+  [data-testid="bookItem"] {
+    background-color: var(--card-bg);
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 6px;
+    border-left: 3px solid var(--card-accent);
+    box-shadow: 0 2px 6px var(--shadow-color);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  [data-testid="bookItem"]::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 100%;
+    background-color: var(--card-accent);
+    transition: width 0.3s ease;
+  }
+  
+  [data-testid="bookItem"]:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 10px var(--shadow-color);
+  }
+  
+  [data-testid="bookItem"]:hover::before {
+    width: 6px;
+  }
+  
+  [data-testid="bookItemTitle"] {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+    color: var(--heading-color);
+    font-weight: 600;
+  }
+  
+  [data-testid="bookItemAuthor"],
+  [data-testid="bookItemYear"] {
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+    color: var(--text-color);
+    opacity: 0.9;
+  }
+  
+  /* === BUTTON STYLING === */
+  [data-testid="bookItem"] div {
+    display: flex;
+    gap: 8px;
+    margin-top: 12px;
+    flex-wrap: wrap;
+  }
+  
+  [data-testid="bookItemIsCompleteButton"], 
+  [data-testid="bookItemDeleteButton"],
+  [data-testid="bookItemEditButton"] {
+    padding: 6px 10px;
+    font-size: 0.8rem;
+  }
+  
+  [data-testid="bookItemIsCompleteButton"] {
+    background-color: var(--accent-color);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  
+  [data-testid="bookItemIsCompleteButton"]::before {
+    content: "✓";
+  }
+  
+  [data-testid="bookItemIsCompleteButton"]:hover {
+    background-color: var(--accent-hover);
+  }
+  
+  [data-testid="bookItemDeleteButton"] {
+    background-color: var(--delete-color);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  
+  [data-testid="bookItemDeleteButton"]::before {
+    content: "×";
+    font-size: 1.1rem;
+    font-weight: bold;
+  }
+  
+  [data-testid="bookItemDeleteButton"]:hover {
+    background-color: var(--delete-hover);
+  }
+  
+  [data-testid="bookItemEditButton"] {
+    background-color: var(--edit-color);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  
+  [data-testid="bookItemEditButton"]::before {
+    content: "✎";
+    font-size: 0.9rem;
+  }
+  
+  [data-testid="bookItemEditButton"]:hover {
+    background-color: var(--edit-hover);
+  }
+  
+  /* === BOOK SHELF STYLING === */
+  #incompleteBookList,
+  #completeBookList {
+    margin-top: 15px;
+  }
+  
+  /* === SEARCH FORM SPECIFIC STYLING === */
+  #searchBook {
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    background-color: var(--card-bg);
+    padding: 12px;
+    border-radius: 6px;
+    box-shadow: 0 2px 6px var(--shadow-color);
+  }
+  
+  #searchBook label {
+    margin-bottom: 0;
+    white-space: nowrap;
+  }
+  
+  #searchBookTitle {
+    flex-grow: 1;
+    min-width: 150px;
+  }
+  
+  /* === EMPTY STATE === */
+  .empty-state {
+    text-align: center;
+    padding: 20px;
+    color: var(--text-color);
+    opacity: 0.6;
+  }
+  
+  .empty-state p {
+    margin: 8px 0;
+    font-style: italic;
+    font-size: 0.9rem;
+  }
+  
+  /* === ANIMATIONS === */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  [data-testid="bookItem"] {
+    animation: fadeIn 0.4s ease forwards;
+  }
+  
+  /* === RESPONSIVE DESIGN === */
+  @media (min-width: 768px) {
+    main {
+      grid-template-columns: 1fr 1fr;
+    }
+    
+    section:nth-child(1),
+    section:nth-child(2) {
+      grid-column: span 2;
+    }
+    
+    #searchBook {
+      flex-wrap: nowrap;
+    }
+  }
+  
+  @media (min-width: 992px) {
+    body {
+      padding: 25px;
+    }
+    
+    section {
+      padding: 20px;
+    }
+    
+    #bookForm {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+    }
+    
+    #bookForm div:last-of-type,
+    #bookFormSubmit {
+      grid-column: span 2;
+    }
+  }
+  
+  @media (max-width: 600px) {
+    header {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      padding-bottom: 10px;
+    }
+    
+    header h1 {
+      font-size: 1.4rem;
+    }
+    
+    .theme-toggle {
+      padding: 3px 6px;
+      font-size: 0.7rem;
+      border-radius: 8px;
+    }
+    
+    section {
+      padding: 15px;
+    }
+    
+    #searchBook {
+      flex-direction: column;
+      align-items: stretch;
+    }
+    
+    [data-testid="bookItem"] div {
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+    
+    [data-testid="bookItemIsCompleteButton"], 
+    [data-testid="bookItemDeleteButton"],
+    [data-testid="bookItemEditButton"] {
+      padding: 4px 8px;
+      font-size: 0.75rem;
+      flex: 1 0 auto;
+      min-width: 70px;
+      max-width: 100px;
+    }
+  }
+  
+  /* Extra small screens */
+  @media (max-width: 400px) {
+    header h1 {
+      font-size: 1.2rem;
+    }
+    
+    .theme-toggle {
+      font-size: 0.65rem;
+      padding: 2px 5px;
+    }
+    
+    [data-testid="bookItem"] div {
+      gap: 5px;
+    }
+  }
+  
+  /* === LOADER ANIMATION === */
+  .loader {
+    display: none;
+    width: 30px;
+    height: 30px;
+    border: 3px solid var(--border-color);
+    border-top: 3px solid var(--accent-color);
+    border-radius: 50%;
+    margin: 15px auto;
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  .loader.show {
+    display: block;
+  }
