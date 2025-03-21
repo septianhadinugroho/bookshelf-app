@@ -137,10 +137,10 @@ document.addEventListener('DOMContentLoaded', function() {
   
       const { value: title } = bookFormTitle;
       const { value: author } = bookFormAuthor;
-      const { value: year } = bookFormYear;
+      const yearValue = parseInt(bookFormYear.value, 10);
       const { checked: isComplete } = bookFormIsComplete;
       
-      if (!title || !author || isNaN(year)) {
+      if (!title || !author || isNaN(yearValue)) {
         alert('Semua kolom harus diisi!');
         return;
       }
@@ -153,7 +153,7 @@ document.addEventListener('DOMContentLoaded', function() {
             ...books[index],
             title,
             author,
-            year,
+            year: yearValue,
             isComplete
           };
           editMode = false;
@@ -167,7 +167,7 @@ document.addEventListener('DOMContentLoaded', function() {
           id: generateId(),
           title,
           author,
-          year,
+          year: yearValue,
           isComplete
         };
         books.push(newBook);
